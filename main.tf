@@ -17,3 +17,8 @@ resource "aci_tenant" "tenant" {
  name = var.apic_tenant_name
  description = "Terraform"
 }
+
+resource "aci_vrf" "vrf" {
+  tenant_dn = aci_tenant.tenant.id
+  name = "demo-vrf-ist"
+}
